@@ -16,7 +16,7 @@ function Home() {
   }
 
   const getProducts = async () => {
-    let res = {};//await getAll();
+    let res = await getAll();
     console.log(res);
     setproducts(res);
   }
