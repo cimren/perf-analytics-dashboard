@@ -33,11 +33,12 @@ function Home() {
   return (
     <div className="home">
       <ul className="list">
-        {(products && products.length > 0) ? (
+        <p>Hello Cihan</p>
+        {/* {(products && products.length > 0) ? (
           products.map(product => renderProduct(product))
         ) : (
           <p>No products found</p>
-        )}
+        )} */}
       </ul>
     </div>
   );
