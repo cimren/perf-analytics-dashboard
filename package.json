@@ -1,5 +1,5 @@
 {
-  "name": "perf-analytics-application",
+  "name": "perf-analytics-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

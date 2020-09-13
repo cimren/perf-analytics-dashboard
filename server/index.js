@@ -19,6 +19,8 @@ const getData = (req, res) => {
   let url = "https://cihan-perf-analytics-api.herokuapp.com/perf_metrics"; 
   
   console.log("call api");
+
+  res.status(200).json([{id: 1, url: 'example.com'}, {id: 2, url: 'test.com'}]);
    /* request(url , function(error, response, body) {
     if(error){
       throw error
