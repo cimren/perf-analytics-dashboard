@@ -18,18 +18,15 @@ app.use(bodyParser.urlencoded({extended: true}))
 const getData = (req, res) => {
   let url = "https://cihan-perf-analytics-api.herokuapp.com/perf_metrics"; 
   
-  console.log("call api");
-
-  res.status(200).json([{id: 1, url: 'example.com'}, {id: 2, url: 'test.com'}]);
-   /* request(url , function(error, response, body) {
-    if(error){
+   request(url , function(error, response, body) {
+    
+    if(error){      
       throw error
     }
-    else if (!error && response.statusCode === 201) {
-      console.log(response);
-      res.status(200).json([{id: 1, url: 'example.com'}, {id: 2, url: 'test.com'}]);
+    else if (!error && response.statusCode === 200) {            
+      res.status(200).send(response.body);
     }
-  })  */
+  }) 
 }
 
 app.get('/', (req, res) => {
