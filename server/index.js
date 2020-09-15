@@ -31,7 +31,7 @@ const getData = (req, res) => {
   }) 
 }
 
-app.get('/', (req, res) => {
+app.get('/dashboard', (req, res) => {
   const app = ReactDOMServer.renderToString(<App />);
 
   const indexFile = path.resolve('./build/index.html');
