@@ -3,13 +3,16 @@ import axios from 'axios';
 import LineChart from './LineChart'; 
 //import './Dashboard.css';
 
-let ttfb, fcp, domLoad, windowLoad;
+let ttfbData, fcpData, domLoadData, windowLoadData;
 
 function Dashboard(props) {
-  const [metrics, setmetrics] = useState(null);
+  const [ttfb, setTtfb] = useState(null);
+  const [fcp, setFcp] = useState(null);
+  const [domLoad, setDomLoad] = useState(null);
+  const [windowLoad, setWindowLoad] = useState(null);
   
   useEffect(() => {
-    if(!metrics) {
+    if(!ttfb) {
       //getMetrics();
       getMetricsByUrl('https://cihan-perf-analytics-library.herokuapp.com/');
     }
@@ -26,13 +29,20 @@ function Dashboard(props) {
     setmetrics(metrics);
   } */
 
+  const setMetrics = () => {
+    setTtfb(ttfbData);
+    setFcp(fcpData);
+    setDomLoad(domLoadData);
+    setWindowLoad(windowLoadData);
+  }
+
   const getMetricsByUrl = async (url) => {
     let res = await axios.get('/api/perf_metrics?url=' + url);
-    ttfb = prepareChartData(res.data, 'ttfb'); 
-    fcp = prepareChartData(res.data, 'fcp');
-    domLoad = prepareChartData(res.data, 'domload');    
-    windowLoad = prepareChartData(res.data, 'windowload');    
-    setmetrics(res.data);
+    ttfbData = prepareChartData(res.data, 'ttfb'); 
+    fcpData = prepareChartData(res.data, 'fcp');
+    domLoadData = prepareChartData(res.data, 'domload');    
+    windowLoadData = prepareChartData(res.data, 'windowload');    
+    setMetrics();
   }
 
   const prepareChartData = (data, property) => {
