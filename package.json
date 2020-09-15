@@ -22,8 +22,7 @@
     "dev": "npm-run-all --parallel build dev:*",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-server": "webpack --config webpack.server.js",
-    "heroku-postbuild": "npm-run-all --parallel build build-server",
+    "build-server": "webpack --config webpack.server.js",    
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
