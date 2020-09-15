@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 
 const getData = (req, res) => {
-  let url = "https://cihan-perf-analytics-api.herokuapp.com/perf_metrics"; 
+  let url = "https://cihan-perf-analytics-api.herokuapp.com/perf_metrics";
+  if(req.query.url)
+    url += "?url=" + req.query.url;  
   
    request(url , function(error, response, body) {
     
