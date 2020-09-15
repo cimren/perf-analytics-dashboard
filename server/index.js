@@ -25,7 +25,7 @@ const getData = (req, res) => {
     if(error){      
       throw error
     }
-    else if (!error && response.statusCode === 200) {            
+    else if (!error && response.statusCode === 200) {   
       res.status(200).send(response.body);
     }
   }) 

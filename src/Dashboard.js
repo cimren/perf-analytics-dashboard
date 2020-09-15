@@ -38,16 +38,16 @@ function Dashboard(props) {
 
   const getMetricsByUrl = async (url) => {
     let res = await axios.get('/api/perf_metrics?url=' + url);
-    ttfbData = res.data //prepareChartData(res.data, 'ttfb'); 
-    fcpData = res.data //prepareChartData(res.data, 'fcp');
-    domLoadData = res.data //prepareChartData(res.data, 'domload');    
-    windowLoadData = res.data //prepareChartData(res.data, 'windowload');    
+    ttfbData = prepareChartData(res.data, 'ttfb'); 
+    fcpData = prepareChartData(res.data, 'fcp');
+    domLoadData = prepareChartData(res.data, 'domload');    
+    windowLoadData = prepareChartData(res.data, 'windowload');    
     setMetrics();
   }
 
   const prepareChartData = (data, property) => {
     let chartData=[];
-    data && data.map((item)=>{
+    data.length && data.map((item)=>{
       const date = new Date(parseInt(item.datetime));
       chartData.push({
         label: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(),
