@@ -38,10 +38,10 @@ function Dashboard(props) {
 
   const getMetricsByUrl = async (url) => {
     let res = await axios.get('/api/perf_metrics?url=' + url);
-    ttfbData = prepareChartData(res.data, 'ttfb'); 
-    fcpData = prepareChartData(res.data, 'fcp');
-    domLoadData = prepareChartData(res.data, 'domload');    
-    windowLoadData = prepareChartData(res.data, 'windowload');    
+    ttfbData = res.data //prepareChartData(res.data, 'ttfb'); 
+    fcpData = res.data //prepareChartData(res.data, 'fcp');
+    domLoadData = res.data //prepareChartData(res.data, 'domload');    
+    windowLoadData = res.data //prepareChartData(res.data, 'windowload');    
     setMetrics();
   }
 
