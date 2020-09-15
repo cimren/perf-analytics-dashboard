@@ -62,11 +62,11 @@ function Dashboard(props) {
         <h1>{props.title}</h1>        
         <div className="chart">
           <p>Displaying performance metrics...</p>
-{/*           <LineChart chartData={ttfb} title="TTFB"/>
+          <LineChart chartData={ttfb} title="TTFB"/>
           <LineChart chartData={fcp} title="FCP"/>
           <LineChart chartData={domLoad} title="Dom Load"/>
           <LineChart chartData={windowLoad} title="Window Load"/>
- */}        </div>
+        </div>
                   
     </div>
   );
