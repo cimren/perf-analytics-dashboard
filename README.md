@@ -1,5 +1,7 @@
 This project uses NodeJS & React to show performance analytics metrics in dashboard with Server Side Rendering approach.
 
+Demo: https://cihan-perf-analytics-dashboard.herokuapp.com/
+
 ## Available Scripts
 
 In the project directory, you can run:
