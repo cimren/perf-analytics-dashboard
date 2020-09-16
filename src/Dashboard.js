@@ -1,40 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import LineChart from './LineChart'; 
-//import './Dashboard.css';
 
 let ttfbData, fcpData, domLoadData, windowLoadData;
 
 function Dashboard(props) {
-  const [ttfb, setTtfb] = useState(null);
-  const [fcp, setFcp] = useState(null);
-  const [domLoad, setDomLoad] = useState(null);
-  const [windowLoad, setWindowLoad] = useState(null);
-  
+  const [metrics, setMetrics] = useState(null);
+
   useEffect(() => {
-    if(!ttfbData) {
-      //getMetrics();
+    if(!metrics) {      
       getMetricsByUrl('https://cihan-perf-analytics-library.herokuapp.com/');
     }
   })
 
-  const getAll = async () => {
+ /*  const getAll = async () => {
     let res = await axios.get('/api/perf_metrics');
     return res.data || [];
-  }
-
- /*  const getMetrics = async () => {
-    let res = await getAll();    
-    let metrics = prepareChartData(res.data);
-    setmetrics(metrics);
   } */
-
-  const setMetrics = () => {
-    setTtfb(ttfbData);
-    setFcp(fcpData);
-    setDomLoad(domLoadData);
-    setWindowLoad(windowLoadData);
-  }
 
   const getMetricsByUrl = async (url) => {
     let res = await axios.get('/api/perf_metrics?url=' + url);
@@ -47,7 +29,7 @@ function Dashboard(props) {
 
   const prepareChartData = (data, property) => {
     let chartData=[];
-    typeof data == 'array' && data.map((item)=>{
+    data && data.map((item)=>{
       const date = new Date(parseInt(item.datetime));
       chartData.push({
         label: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(),
@@ -72,4 +54,4 @@ function Dashboard(props) {
   );
 }
 
-export default Dashboard;
+export default Dashboard; 

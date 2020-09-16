@@ -35,7 +35,7 @@ app.get('/api/perf_metrics', getData);
 
 app.use('/', express.static('./build'));
 
-/* app.get('*', (req, res) => {
+app.get('*', (req, res) => {
   const app = ReactDOMServer.renderToString(<App />);
 
   const indexFile = path.resolve('./build/index.html');
@@ -49,7 +49,7 @@ app.use('/', express.static('./build'));
       data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
     );
   });
-}); */
+});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
