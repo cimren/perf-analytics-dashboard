@@ -12,7 +12,7 @@ function Dashboard(props) {
   const [windowLoad, setWindowLoad] = useState(null);
   
   useEffect(() => {
-    if(!ttfb) {
+    if(!ttfbData) {
       //getMetrics();
       getMetricsByUrl('https://cihan-perf-analytics-library.herokuapp.com/');
     }
@@ -62,10 +62,10 @@ function Dashboard(props) {
         <h1>{props.title}</h1>        
         <div className="chart">
           <p>Displaying performance metrics...</p>
-          <LineChart chartData={ttfb} title="TTFB"/>
-          <LineChart chartData={fcp} title="FCP"/>
-          <LineChart chartData={domLoad} title="Dom Load"/>
-          <LineChart chartData={windowLoad} title="Window Load"/>
+          <LineChart chartData={ttfbData} title="TTFB"/>
+          <LineChart chartData={fcpData} title="FCP"/>
+          <LineChart chartData={domLoadData} title="Dom Load"/>
+          <LineChart chartData={windowLoadData} title="Window Load"/>
         </div>
                   
     </div>
