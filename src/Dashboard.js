@@ -29,7 +29,7 @@ function Dashboard(props) {
 
   const prepareChartData = (data, property) => {
     let chartData=[];
-    data && data.map((item)=>{
+    typeof data == "array" && data.map((item)=>{
       const date = new Date(parseInt(item.datetime));
       chartData.push({
         label: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(),

@@ -14,12 +14,12 @@ export default class LineChart extends Component {
       this.myChart = new Chart(this.chartRef.current, {
         type: 'line',        
         data: {
-          labels: chartData ? chartData.map(element => {
+          labels: typeof chartData == "array" ? chartData.map(element => {
             return element.label
           }) : [],
           datasets: [{
               label: title,
-              data: chartData ? chartData.map(element => {
+              data: typeof chartData == "array" ? chartData.map(element => {
                 return element.data
               }) : [],
               backgroundColor: [
